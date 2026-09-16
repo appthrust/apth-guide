@@ -29,9 +29,7 @@ export default async function Home() {
   const database = await loadDatabaseState();
   const sections = guideSections();
   const release =
-    process.env.VERSION?.trim() ||
-    process.env.APTH_COMPONENT_VERSION?.trim() ||
-    "local";
+    process.env.VERSION?.trim() || process.env.APTH_COMPONENT_VERSION?.trim();
   // The guide's own H1 is replaced by the page hero.
   const body = guide.markdown.replace(/^# .*\n/, "");
 
@@ -145,10 +143,12 @@ export default async function Home() {
             </code>
           </p>
           <dl className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs">
-            <div className="flex gap-2">
-              <dt className="text-slate-500">release</dt>
-              <dd className="text-slate-900">{release}</dd>
-            </div>
+            {release ? (
+              <div className="flex gap-2">
+                <dt className="text-slate-500">release</dt>
+                <dd className="text-slate-900">{release}</dd>
+              </div>
+            ) : null}
             <div className="flex gap-2">
               <dt className="text-slate-500">postgres</dt>
               <dd className="text-slate-900">
