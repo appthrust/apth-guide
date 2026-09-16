@@ -13,8 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AppThrust PostgreSQL sample",
-  description: "A database-backed starter application for AppThrust",
+  title: "apth — ship apps to appthrust.dev from your coding agent",
+  description:
+    "The apth developer CLI and the appthrust-app-dev skill: create, deploy, publish, and operate an application on AppThrust from Claude Code, Codex, or OMP.",
+  metadataBase: new URL("https://apth.appthrust.dev"),
 };
 
 export default function RootLayout({
